@@ -1,0 +1,25 @@
+{
+  "name": "rm2-typings",
+  "version": "1.0.0",
+  "description": "Typings for RM2",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/play-curious/RedMetrics2-typing.git"
+  },
+  "keywords": [
+    "typescript"
+  ],
+  "author": "ghom",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/play-curious/RedMetrics2-typing/issues"
+  },
+  "homepage": "https://github.com/play-curious/RedMetrics2-typing#readme",
+  "devDependencies": {
+    "typescript": "^4.3.2"
+  }
+}
