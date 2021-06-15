@@ -61,7 +61,7 @@ export type SessionUser = User & Session;
  * A game  Since RedMetrics data is open, <br>
  * is is vital that no personally identifiable information is stored about a player.
  * @property software - String that can be user agent on browsers.
- * @property externalId - String that can be set by developers in order to link the player with another database. This must not be a personally identifiable marker such as an email address.
+ * @property external_id - String that can be set by developers in order to link the player with another database. This must not be a personally identifiable marker such as an email address.
  */
 export interface GameSession {
   id?: Id;
@@ -149,9 +149,9 @@ export interface RMError {
 }
 
 /**
- * @property apiVersion - the numeric version, containing major and minor parts (such as 3.21)
+ * @property api_version - the numeric version, containing major and minor parts (such as 3.21)
  * @property build - the build of the software
- * @property startedAt - Date that the server was last started
+ * @property started_at - Date that the server was last started
  */
 export interface Status {
   api_version: number;
