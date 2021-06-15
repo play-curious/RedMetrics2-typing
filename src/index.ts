@@ -61,7 +61,7 @@ export interface RawApiKey {
   api_key: Id
   account_id: Id
   game_id?: Id
-  permissions: string | Permission[]
+  permissions: string
   logger: boolean
 }
 
@@ -83,6 +83,16 @@ export interface Session {
   custom_data?: CustomData
 }
 
+export interface RawSession {
+  id?: Id
+  game_version_id: Id
+  platform?: string
+  screen_size?: string
+  software?: string
+  external_id?: string
+  custom_data?: string
+}
+
 /**
  * @property author - Containing the name of the person or organization who created the game
  */
@@ -95,12 +105,29 @@ export interface Game {
   custom_data?: CustomData
 }
 
+export interface RawGame {
+  id?: Id
+  publisher_id?: Id
+  name: string
+  author?: string
+  description?: string
+  custom_data?: string
+}
+
 export interface GameVersion {
   id?: Id
   game_id: Id
   name: string
   description?: string
   custom_data?: CustomData
+}
+
+export interface RawGameVersion {
+  id?: Id
+  game_id: Id
+  name: string
+  description?: string
+  custom_data?: string
 }
 
 /**
@@ -151,6 +178,17 @@ export interface RMEvent {
   custom_data?: CustomData
   section?: Section
   coordinates?: Coordinate
+}
+
+export interface RawRMEvent {
+  id?: number
+  game_session_id: Id
+  type: EventType
+  server_time: RMDate
+  user_time?: RMDate
+  section?: Section
+  custom_data?: string
+  coordinates?: string
 }
 
 export interface RMError {
