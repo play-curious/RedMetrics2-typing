@@ -174,3 +174,16 @@ export interface User extends Login {
 export type Email = string;
 export type Hash = Password;
 export type Password = string;
+
+export function isHash(str: string): str is Hash {
+  return str.length === 60;
+}
+
+export function isValidEmail(email: any): email is Email {
+  return (
+    typeof email === "string" &&
+    !/\s/.test(email) &&
+    email.includes("@") &&
+    email.includes(".")
+  );
+}
