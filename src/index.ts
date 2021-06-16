@@ -52,7 +52,7 @@ export interface ApiKey {
   account_id: Id
   game_id?: Id
   permissions: Permission[]
-  logger: boolean
+  is_connection_key: boolean
 }
 
 export interface RawApiKey {
@@ -62,7 +62,7 @@ export interface RawApiKey {
   account_id: Id
   game_id?: Id
   permissions: string
-  logger: boolean
+  is_connection_key: boolean
 }
 
 export type ApiKeyUser = User & ApiKey
