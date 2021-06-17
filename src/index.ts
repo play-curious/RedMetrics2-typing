@@ -75,7 +75,6 @@ export type ApiKeyUser = User & ApiKey
  */
 export interface Session {
   id?: Id
-  name: string
   game_version_id: Id
   platform?: string
   screen_size?: string
