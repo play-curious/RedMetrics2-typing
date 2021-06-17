@@ -2,9 +2,10 @@
   "name": "rm2-typings",
   "version": "1.0.0",
   "description": "Typings for RM2",
-  "main": "src/index.ts",
+  "main": "./dist/index.js",
   "scripts": {
     "format": "prettier --write src --no-semi",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
