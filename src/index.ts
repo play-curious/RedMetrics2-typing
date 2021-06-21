@@ -65,6 +65,12 @@ export interface RawApiKey {
   is_connection_key: boolean
 }
 
+export interface POSTApiKey {
+  name: string
+  game_id?: Id
+  permissions: Permission[]
+}
+
 export type ApiKeyUser = User & ApiKey
 
 /**
