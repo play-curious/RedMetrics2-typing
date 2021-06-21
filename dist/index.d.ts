@@ -54,6 +54,7 @@ export interface RawApiKey {
     permissions: string;
     is_connection_key: boolean;
 }
+export declare type POSTApiKey = Omit<ApiKey, "start_at" | "api_key" | "account_id" | "is_connection_key">;
 export declare type ApiKeyUser = User & ApiKey;
 /**
  * A game  Since RedMetrics data is open, <br>

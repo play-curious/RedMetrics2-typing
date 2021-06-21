@@ -65,11 +65,7 @@ export interface RawApiKey {
   is_connection_key: boolean
 }
 
-export interface POSTApiKey {
-  name: string
-  game_id?: Id
-  permissions: Permission[]
-}
+export type POSTApiKey = Omit<ApiKey, "start_at" | "api_key" | "account_id" | "is_connection_key">
 
 export type ApiKeyUser = User & ApiKey
 
