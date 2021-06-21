@@ -99,6 +99,7 @@ export interface RawGame {
     description?: string;
     custom_data?: string;
 }
+export declare type POSTGame = Omit<RawGame, "publisher_id" | "id">;
 export interface GameVersion {
     id?: Id;
     game_id: Id;
