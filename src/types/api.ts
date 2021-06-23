@@ -4,7 +4,7 @@ import * as tables from "./tables"
 /**
  * Emitted API error
  */
-export interface RMError {
+export interface Error {
   code: number
   description: string
 }
