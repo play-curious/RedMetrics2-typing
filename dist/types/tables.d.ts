@@ -7,7 +7,7 @@ export interface Account {
 }
 export interface ApiKey {
     name: string;
-    start_at: base.RMDate;
+    start_at: base.Date;
     fingerprint: base.Id;
     account_id: Account["id"];
     game_id: Game["id"];
@@ -55,8 +55,8 @@ export interface Event {
     id?: number;
     session_id: Session["id"];
     type: base.EventType;
-    server_time: base.RMDate;
-    user_time?: base.RMDate;
+    server_time: base.Date;
+    user_time?: base.Date;
     custom_data?: base.CustomData;
     section?: base.Section;
     coordinates?: base.Coordinate;

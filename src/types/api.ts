@@ -17,7 +17,7 @@ export interface Error {
 export interface Status {
   api_version: number
   build: string
-  started_at: base.RMDate
+  started_at: base.Date
 }
 
 export type POSTApiKey = Omit<

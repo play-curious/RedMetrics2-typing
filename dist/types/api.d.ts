@@ -15,7 +15,7 @@ export interface Error {
 export interface Status {
     api_version: number;
     build: string;
-    started_at: base.RMDate;
+    started_at: base.Date;
 }
 export declare type POSTApiKey = Omit<tables.ApiKey, "start_at" | "fingerprint" | "account_id">;
 export declare type POSTGame = Omit<tables.Game, "publisher_id" | "id">;

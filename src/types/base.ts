@@ -3,7 +3,7 @@
  * It looks like 2015-01-27T09:44:32.418Z. <br>
  * All times are in UTC, and include milliseconds.
  */
-export type RMDate = string
+export type Date = string
 
 /**
  * String containing a server-generated unique identifier.
