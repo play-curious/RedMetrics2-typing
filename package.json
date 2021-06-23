@@ -4,9 +4,12 @@
   "description": "Typings for RM2",
   "main": "./dist/index.js",
   "scripts": {
-    "format": "prettier --write src --no-semi",
+    "format": "prettier --write src",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "prettier": {
+    "semi": false
   },
   "repository": {
     "type": "git",

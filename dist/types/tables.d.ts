@@ -51,7 +51,7 @@ export interface Version {
 /**
  * @property custom_data - JSON For "gain" and “lose” events, specifies the number of things are gained or lost.
  */
-export interface RMEvent {
+export interface Event {
     id?: number;
     session_id: Session["id"];
     type: base.EventType;
