@@ -3,6 +3,7 @@ export interface Account {
     id: base.Id;
     email: base.Email;
     password: base.Password;
+    connection_token?: string;
     is_admin: boolean;
 }
 export interface ApiKey {
