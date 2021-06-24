@@ -22,7 +22,7 @@ export interface ApiKey {
 export interface Session {
     id: base.Id;
     game_id: Game["id"];
-    version: string;
+    version?: string;
     platform?: string;
     screen_size?: string;
     software?: string;
