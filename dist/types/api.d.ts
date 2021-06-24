@@ -1,5 +1,5 @@
 import * as base from "./base";
-import * as tables from "./tables";
+export * from "./api/auth";
 /**
  * Emitted API error
  */
@@ -17,6 +17,3 @@ export interface Status {
     build: string;
     started_at: base.Date;
 }
-export declare type POSTApiKey = Omit<tables.ApiKey, "start_at" | "key" | "account_id">;
-export declare type POSTLogin = Pick<tables.Account, "email" | "password">;
-export declare type POSTGame = Omit<tables.Game, "publisher_id" | "id">;
