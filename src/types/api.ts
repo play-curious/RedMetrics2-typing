@@ -20,9 +20,6 @@ export interface Status {
   started_at: base.Date
 }
 
-export type POSTApiKey = Omit<
-  tables.ApiKey,
-  "start_at" | "fingerprint" | "account_id"
->
+export type POSTApiKey = Omit<tables.ApiKey, "start_at" | "key" | "account_id">
 
 export type POSTGame = Omit<tables.Game, "publisher_id" | "id">

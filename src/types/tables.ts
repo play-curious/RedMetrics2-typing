@@ -11,7 +11,7 @@ export interface Account {
 export interface ApiKey {
   name: string
   start_at: base.Date
-  fingerprint: base.Id
+  key: base.Id
   account_id: Account["id"]
   game_id: Game["id"]
 }
