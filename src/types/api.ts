@@ -23,3 +23,8 @@ export interface Status {
 export type POSTApiKey = Omit<tables.ApiKey, "start_at" | "key" | "account_id">
 
 export type POSTGame = Omit<tables.Game, "publisher_id" | "id">
+
+export interface Login {
+  email: base.Email
+  password: base.Password
+}

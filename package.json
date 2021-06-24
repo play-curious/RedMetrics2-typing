@@ -1,6 +1,6 @@
 {
   "name": "rm2-typings",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Typings for RM2",
   "main": "./dist/index.js",
   "scripts": {
