@@ -24,7 +24,8 @@ export interface ApiKey {
  */
 export interface Session {
   id: base.Id
-  version_id: Version["id"]
+  game_id: Game["id"]
+  version: string
   platform?: string
   screen_size?: string
   software?: string
@@ -40,17 +41,6 @@ export interface Game {
   publisher_id?: Account["id"]
   name: string
   author?: string
-  description?: string
-  custom_data?: base.CustomData
-}
-
-/**
- * Game version
- */
-export interface Version {
-  id: base.Id
-  game_id: Game["id"]
-  name: string
   description?: string
   custom_data?: base.CustomData
 }
