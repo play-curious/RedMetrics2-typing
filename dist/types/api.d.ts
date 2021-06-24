@@ -18,8 +18,5 @@ export interface Status {
     started_at: base.Date;
 }
 export declare type POSTApiKey = Omit<tables.ApiKey, "start_at" | "key" | "account_id">;
+export declare type POSTLogin = Pick<tables.Account, "email" | "password">;
 export declare type POSTGame = Omit<tables.Game, "publisher_id" | "id">;
-export interface Login {
-    email: base.Email;
-    password: base.Password;
-}
