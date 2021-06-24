@@ -1,12 +1,15 @@
 import * as tables from "../tables"
+import { Item } from "../api"
 
-export interface Logout {
+export interface Logout extends Item {
+  Route: "/logout"
   Get: {
     Response: void
   }
 }
 
-export interface Login {
+export interface Login extends Item {
+  Route: "/login"
   Post: {
     Body: Pick<tables.Account, "email" | "password">
     Response: {
@@ -15,7 +18,8 @@ export interface Login {
   }
 }
 
-export interface Register {
+export interface Register extends Item {
+  Route: "/register"
   Post: {
     Body: Pick<tables.Account, "email" | "password" | "is_admin">
     Response: {
@@ -25,13 +29,15 @@ export interface Register {
   }
 }
 
-export interface Account {
+export interface Account extends Item {
+  Route: "/account"
   Get: {
     Response: tables.Account
   }
 }
 
-export interface AccountById {
+export interface AccountById extends Item {
+  Route: "/account/:id"
   Params: {
     id: tables.Account["id"]
   }
@@ -49,20 +55,23 @@ export interface AccountById {
   }
 }
 
-export interface Accounts {
+export interface Accounts extends Item {
+  Route: "/accounts"
   Get: {
     Response: tables.Account[]
   }
 }
 
-export interface Key {
+export interface Key extends Item {
+  Route: "/key"
   Post: {
     Body: Pick<tables.ApiKey, "name" | "game_id">
     Response: tables.ApiKey
   }
 }
 
-export interface KeyByKey {
+export interface KeyByKey extends Item {
+  Route: "/key/:key"
   Params: {
     key: tables.ApiKey["key"]
   }
@@ -71,7 +80,8 @@ export interface KeyByKey {
   }
 }
 
-export interface Keys {
+export interface Keys extends Item {
+  Route: "/keys"
   Get: {
     Response: tables.ApiKey[]
   }

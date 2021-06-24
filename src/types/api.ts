@@ -1,5 +1,6 @@
 import * as base from "./base"
 export * from "./api/auth"
+export * from "./api/events"
 
 /**
  * Emitted API error
@@ -18,4 +19,18 @@ export interface Status {
   api_version: number
   build: string
   started_at: base.Date
+}
+
+export interface Item {
+  Route: `/${string}`
+  Params?: any
+  Get?: MethodObject
+  Post?: MethodObject
+  Delete?: MethodObject
+  Put?: MethodObject
+}
+
+interface MethodObject {
+  Body?: any
+  Response?: any
 }
