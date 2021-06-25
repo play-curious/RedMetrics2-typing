@@ -1,4 +1,5 @@
 import * as tables from "../tables"
+import * as base from "../base"
 import { Item } from "../api"
 
 export interface Session extends Item {
@@ -18,6 +19,10 @@ export interface SessionById extends Item {
     Response: tables.Session
   }
   Put: {
+    Body: Pick<
+      tables.Session,
+      "custom_data" | "software" | "screen_size" | "platform" | "external_id"
+    >
     Response: void
   }
 }
@@ -45,6 +50,16 @@ export interface SessionsByGameId extends Item {
 export interface Event extends Item {
   Route: "/event"
   Get: {
+    Body: Partial<{
+      game_id: tables.Game["id"]
+      session_id: tables.Session["id"]
+      type: base.EventType
+      section: base.Section
+      after: base.Date
+      before: base.Date
+      offset: number
+      count: number
+    }>
     Response: tables.Event[]
   }
   Post: {

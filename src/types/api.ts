@@ -1,5 +1,6 @@
 import * as base from "./base"
 export * from "./api/auth"
+export * from "./api/game"
 export * from "./api/events"
 
 /**

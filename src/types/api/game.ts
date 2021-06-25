@@ -4,6 +4,11 @@ import { Item } from "../api"
 export interface Game extends Item {
   Route: "/game"
   Get: {
+    Body: Partial<{
+      publisher_id: tables.Account["id"]
+      offset: number
+      count: number
+    }>
     Response: tables.Game[]
   }
   Post: {
@@ -21,6 +26,9 @@ export interface GameById extends Item {
     Response: tables.Game
   }
   Put: {
+    Body: Partial<
+      Pick<tables.Game, "name" | "description" | "custom_data" | "author">
+    >
     Response: void
   }
   Delete: {
