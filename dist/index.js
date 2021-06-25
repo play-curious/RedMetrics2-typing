@@ -22,7 +22,8 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.api = exports.tables = void 0;
+exports.utils = exports.api = exports.tables = void 0;
 exports.tables = __importStar(require("./types/tables"));
 exports.api = __importStar(require("./types/api"));
+exports.utils = __importStar(require("./utils"));
 __exportStar(require("./types/base"), exports);
