@@ -21,7 +21,7 @@ export interface Login extends Item {
 export interface Register extends Item {
   Route: "/register"
   Post: {
-    Body: Pick<tables.Account, "email" | "password" | "is_admin">
+    Body: Pick<tables.Account, "email" | "password">
     Response: {
       id: tables.Account["id"]
       token: string
@@ -33,6 +33,10 @@ export interface Account extends Item {
   Route: "/account"
   Get: {
     Response: tables.Account
+  }
+  Post: {
+    Body: Pick<tables.Account, "email" | "password" | "is_admin">
+    Response: void
   }
 }
 
