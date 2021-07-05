@@ -52,7 +52,7 @@ export interface AccountById extends Item {
     Response: void
   }
   Put: {
-    Body: Partial<Register["Post"]["Body"]>
+    Body: Partial<Account["Post"]["Body"]>
     Response: {
       id: tables.Account["id"]
     }
