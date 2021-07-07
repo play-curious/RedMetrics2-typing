@@ -8,6 +8,11 @@ export interface Account {
   is_admin: boolean
 }
 
+export interface Confirmation {
+  account_id: Account["id"]
+  code: string
+}
+
 export interface ApiKey {
   name: string
   start_at: base.Date

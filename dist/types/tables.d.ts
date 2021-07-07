@@ -6,6 +6,10 @@ export interface Account {
     connection_token?: string;
     is_admin: boolean;
 }
+export interface Confirmation {
+    account_id: Account["id"];
+    code: string;
+}
 export interface ApiKey {
     name: string;
     start_at: base.Date;
