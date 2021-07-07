@@ -84,16 +84,19 @@ export interface Keys extends Item {
         Response: void;
     };
 }
-export interface LostPassword {
+export interface LostPassword extends Item {
     Route: "/lost-password";
     /** Send email and wait digit confirmation key */
-    Get: {
+    Post: {
+        Body: {
+            email: string;
+        };
         Response: void;
     };
     /** Send email including new temporary generated password */
-    Post: {
+    Patch: {
         Body: {
-            code: number;
+            code: string;
         };
         Response: void;
     };

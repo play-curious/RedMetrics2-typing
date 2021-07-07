@@ -29,6 +29,7 @@ export interface Item {
   Post?: MethodObject
   Delete?: MethodObject
   Put?: MethodObject
+  Patch?: MethodObject
 }
 
 interface MethodObject {
