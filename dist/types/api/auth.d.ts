@@ -101,3 +101,17 @@ export interface LostPassword extends Item {
         Response: void;
     };
 }
+export interface ConfirmEmail extends Item {
+    Route: "/confirm-email";
+    /** Send email with digit confirmation key */
+    Post: {
+        Response: void;
+    };
+    /** Confirm account if digit code is good */
+    Patch: {
+        Body: {
+            code: string;
+        };
+        Response: void;
+    };
+}

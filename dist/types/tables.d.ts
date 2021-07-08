@@ -4,6 +4,7 @@ export interface Account {
     email: base.Email;
     password: base.Password;
     connection_token?: string;
+    confirmed?: boolean;
     is_admin: boolean;
 }
 export interface Confirmation {
