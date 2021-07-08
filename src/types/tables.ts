@@ -7,6 +7,7 @@ export interface Account {
   connection_token?: string
   confirmed?: boolean
   is_admin: boolean
+  created_timestamp: string
 }
 
 export interface Confirmation {
