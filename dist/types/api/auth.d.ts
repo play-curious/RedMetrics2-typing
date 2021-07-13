@@ -47,7 +47,10 @@ export interface AccountById extends Item {
         Response: void;
     };
     Put: {
-        Body: Partial<Account["Post"]["Body"]>;
+        Body: Pick<tables.Account, "email" | "is_admin"> & {
+            new_password?: tables.Account["password"];
+            old_password?: tables.Account["password"];
+        };
         Response: {
             id: tables.Account["id"];
         };
