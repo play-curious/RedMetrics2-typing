@@ -65,7 +65,7 @@ export interface Accounts extends Item {
 export interface Key extends Item {
     Route: "/key";
     Post: {
-        Body: Pick<tables.ApiKey, "name" | "game_id">;
+        Body: Pick<tables.ApiKey, "description" | "game_id">;
         Response: tables.ApiKey;
     };
 }

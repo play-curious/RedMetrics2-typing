@@ -16,7 +16,7 @@ export interface Confirmation {
 }
 
 export interface ApiKey {
-  name: string
+  description?: string
   start_at: base.Date
   key: base.Id
   account_id: Account["id"]

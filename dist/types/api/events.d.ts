@@ -6,7 +6,6 @@ export interface Session extends Item {
     Post: {
         Body: Omit<tables.Session, "id">;
     };
-    Response: tables.Session;
 }
 export interface SessionById extends Item {
     Route: "/session/:id";
