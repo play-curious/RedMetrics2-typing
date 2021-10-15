@@ -7,7 +7,7 @@ export interface Session extends Item {
   Post: {
     Body: Omit<
       tables.Session,
-      "id" | "game_id" | "created_timestamp" | "updated_timestamp"
+      "id" | "game_id" | "created_timestamp" | "updated_timestamp" | "closed"
     >
   }
 }
@@ -23,7 +23,12 @@ export interface SessionById extends Item {
   Put: {
     Body: Pick<
       tables.Session,
-      "custom_data" | "software" | "screen_size" | "platform" | "external_id"
+      | "custom_data"
+      | "software"
+      | "screen_size"
+      | "platform"
+      | "external_id"
+      | "closed"
     >
     Response: void
   }

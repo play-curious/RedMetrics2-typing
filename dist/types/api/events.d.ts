@@ -4,7 +4,7 @@ import { Item } from "../api";
 export interface Session extends Item {
     Route: "/session";
     Post: {
-        Body: Omit<tables.Session, "id" | "game_id" | "created_timestamp" | "updated_timestamp">;
+        Body: Omit<tables.Session, "id" | "game_id" | "created_timestamp" | "updated_timestamp" | "closed">;
     };
 }
 export interface SessionById extends Item {
@@ -16,7 +16,7 @@ export interface SessionById extends Item {
         Response: tables.Session;
     };
     Put: {
-        Body: Pick<tables.Session, "custom_data" | "software" | "screen_size" | "platform" | "external_id">;
+        Body: Pick<tables.Session, "custom_data" | "software" | "screen_size" | "platform" | "external_id" | "closed">;
         Response: void;
     };
 }
