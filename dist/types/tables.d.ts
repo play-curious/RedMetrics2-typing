@@ -28,12 +28,15 @@ export interface ApiKey {
 export interface Session {
     id: base.Id;
     game_id: Game["id"];
+    closed: boolean;
     version?: string;
     platform?: string;
     screen_size?: string;
     software?: string;
     external_id?: string;
     custom_data?: base.CustomData;
+    updated_timestamp: string;
+    created_timestamp: string;
 }
 /**
  * @property author - Containing the name of the person or organization who created the game
