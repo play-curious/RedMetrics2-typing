@@ -5,7 +5,10 @@ import { Item } from "../api"
 export interface Session extends Item {
   Route: "/session"
   Post: {
-    Body: Omit<tables.Session, "id" | "game_id">
+    Body: Omit<
+      tables.Session,
+      "id" | "game_id" | "created_timestamp" | "updated_timestamp"
+    >
   }
 }
 
