@@ -18,10 +18,7 @@ export interface Game extends Item {
 }
 
 export interface GameById extends Item {
-  Route: "/game/:id"
-  Params: {
-    id: tables.Game["id"]
-  }
+  Route: `/game/${tables.Game["id"]}`
   Get: {
     Response: tables.Game
   }
@@ -33,5 +30,14 @@ export interface GameById extends Item {
   }
   Delete: {
     Response: void
+  }
+}
+
+export interface GameById_Data extends Item {
+  Route: `/game/${tables.Game["id"]}/data`
+  Get: {
+    Response: tables.Game & {
+      sessions: (tables.Session & { events: tables.Event[] })[]
+    }
   }
 }

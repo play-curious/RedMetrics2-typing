@@ -41,10 +41,7 @@ export interface Account extends Item {
 }
 
 export interface AccountById extends Item {
-  Route: "/account/:id"
-  Params: {
-    id: tables.Account["id"]
-  }
+  Route: `/account/${tables.Account["id"]}`
   Get: {
     Response: tables.Account
   }
@@ -78,10 +75,7 @@ export interface Key extends Item {
 }
 
 export interface KeyByKey extends Item {
-  Route: "/key/:key"
-  Params: {
-    key: tables.ApiKey["key"]
-  }
+  Route: `/key/${tables.ApiKey["key"]}`
   Delete: {
     Response: void
   }

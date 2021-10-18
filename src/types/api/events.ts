@@ -13,7 +13,7 @@ export interface Session extends Item {
 }
 
 export interface SessionById extends Item {
-  Route: "/session/:id"
+  Route: `/session/${string}`
   Params: {
     id: tables.Session["id"]
   }
@@ -35,20 +35,14 @@ export interface SessionById extends Item {
 }
 
 export interface SessionById_Events extends Item {
-  Route: "/session/:id/events"
-  Params: {
-    id: tables.Session["id"]
-  }
+  Route: `/session/${tables.Session["id"]}/events`
   Get: {
     Response: tables.Event[]
   }
 }
 
 export interface SessionsByGameId extends Item {
-  Route: "/sessions/:game_id"
-  Params: {
-    game_id: tables.Game["id"]
-  }
+  Route: `/sessions/${tables.Game["id"]}`
   Get: {
     Response: tables.Session[]
   }
