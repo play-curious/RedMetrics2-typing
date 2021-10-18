@@ -1,4 +1,5 @@
 import * as tables from "../tables"
+import * as full from "../full"
 import { Item } from "../api"
 
 export interface Game extends Item {
@@ -36,8 +37,6 @@ export interface GameById extends Item {
 export interface GameById_Data extends Item {
   Route: `/game/${tables.Game["id"]}/data`
   Get: {
-    Response: tables.Game & {
-      sessions: (tables.Session & { events: tables.Event[] })[]
-    }
+    Response: full.FullGame
   }
 }
