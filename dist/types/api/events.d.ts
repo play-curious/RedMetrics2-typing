@@ -1,5 +1,6 @@
 import * as tables from "../tables";
 import * as base from "../base";
+import * as full from "../full";
 import { Item } from "../api";
 export interface Session extends Item {
     Route: "/session";
@@ -18,6 +19,12 @@ export interface SessionById extends Item {
     Put: {
         Body: Pick<tables.Session, "custom_data" | "software" | "screen_size" | "platform" | "external_id" | "closed">;
         Response: void;
+    };
+}
+export interface SessionById_Data extends Item {
+    Route: `/session/${tables.Session["id"]}/data`;
+    Get: {
+        Response: full.FullSession;
     };
 }
 export interface SessionById_Events extends Item {

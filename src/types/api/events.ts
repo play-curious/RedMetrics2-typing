@@ -1,5 +1,6 @@
 import * as tables from "../tables"
 import * as base from "../base"
+import * as full from "../full"
 import { Item } from "../api"
 
 export interface Session extends Item {
@@ -31,6 +32,13 @@ export interface SessionById extends Item {
       | "closed"
     >
     Response: void
+  }
+}
+
+export interface SessionById_Data extends Item {
+  Route: `/session/${tables.Session["id"]}/data`
+  Get: {
+    Response: full.FullSession
   }
 }
 
