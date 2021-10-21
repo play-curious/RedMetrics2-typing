@@ -72,20 +72,16 @@ export interface Key extends Item {
     Body: Pick<tables.ApiKey, "description" | "game_id">
     Response: tables.ApiKey
   }
-}
-
-export interface KeyByKey extends Item {
-  Route: `/key/${tables.ApiKey["key"]}`
+  Get: {
+    Response: tables.ApiKey[]
+  }
   Delete: {
     Response: void
   }
 }
 
-export interface Keys extends Item {
-  Route: "/keys"
-  Get: {
-    Response: tables.ApiKey[]
-  }
+export interface KeyByKey extends Item {
+  Route: `/key/${tables.ApiKey["key"]}`
   Delete: {
     Response: void
   }
