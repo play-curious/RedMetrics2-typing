@@ -10,6 +10,7 @@ export interface Session extends Item {
       tables.Session,
       "id" | "game_id" | "created_timestamp" | "updated_timestamp" | "closed"
     >
+    Response: Pick<tables.Session, "id">
   }
 }
 
