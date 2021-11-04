@@ -66,7 +66,7 @@ export interface Key extends Item {
         Response: tables.ApiKey;
     };
     Get: {
-        Response: tables.ApiKey[];
+        Response: tables.ApiKey;
     };
     Delete: {
         Response: void;
