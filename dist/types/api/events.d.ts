@@ -56,6 +56,9 @@ export interface Event extends Item {
         Response: tables.Event[];
     };
     Post: {
+        Body: Omit<tables.Event, "id">[];
+        Response: tables.Event[];
+    } | {
         Body: Omit<tables.Event, "id">;
         Response: tables.Event;
     };
