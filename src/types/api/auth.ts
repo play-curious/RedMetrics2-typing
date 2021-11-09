@@ -59,6 +59,13 @@ export interface AccountById extends Item {
   }
 }
 
+export interface AccountById_Keys extends Item {
+  Route: `/account/${tables.Account["id"]}/keys`
+  Get: {
+    Response: tables.ApiKey[]
+  }
+}
+
 export interface Accounts extends Item {
   Route: "/accounts"
   Get: {
