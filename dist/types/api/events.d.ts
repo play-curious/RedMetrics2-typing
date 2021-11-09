@@ -57,9 +57,9 @@ export interface Event extends Item {
     };
     Post: {
         Body: Omit<tables.Event, "id" | "server_time">[];
-        Response: tables.Event[];
+        Response: void;
     } | {
         Body: Omit<tables.Event, "id" | "server_time">;
-        Response: tables.Event;
+        Response: void;
     };
 }
