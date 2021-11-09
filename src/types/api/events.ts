@@ -74,11 +74,11 @@ export interface Event extends Item {
   }
   Post:
     | {
-        Body: Omit<tables.Event, "id">[]
+        Body: Omit<tables.Event, "id" | "server_time">[]
         Response: tables.Event[]
       }
     | {
-        Body: Omit<tables.Event, "id">
+        Body: Omit<tables.Event, "id" | "server_time">
         Response: tables.Event
       }
 }
