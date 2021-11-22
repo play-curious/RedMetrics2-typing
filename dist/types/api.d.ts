@@ -22,13 +22,16 @@ export interface Status {
 export interface Item {
     Route: `/${string}`;
     Params?: any;
-    Get?: MethodObject;
-    Post?: MethodObject;
-    Delete?: MethodObject;
-    Put?: MethodObject;
-    Patch?: MethodObject;
+    Methods: {
+        Get?: MethodObject;
+        Post?: MethodObject;
+        Delete?: MethodObject;
+        Patch?: MethodObject;
+        Put?: MethodObject;
+    };
 }
-interface MethodObject {
+export interface MethodObject {
     Body?: any;
-    Response?: any;
+    Response: any;
 }
+export declare type Methods = "Get" | "Post" | "Delete" | "Put" | "Patch";
