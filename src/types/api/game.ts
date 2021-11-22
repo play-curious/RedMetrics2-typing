@@ -46,3 +46,12 @@ export interface GameById_Data extends Item {
     }
   }
 }
+
+export interface GameById_Sessions extends Item {
+  Route: `/game/${tables.Game["id"]}/sessions`
+  Methods: {
+    Get: {
+      Response: tables.Session[]
+    }
+  }
+}

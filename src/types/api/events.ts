@@ -58,15 +58,6 @@ export interface SessionById_Events extends Item {
   }
 }
 
-export interface SessionsByGameId extends Item {
-  Route: `/sessions/${tables.Game["id"]}`
-  Methods: {
-    Get: {
-      Response: tables.Session[]
-    }
-  }
-}
-
 export interface Event extends Item {
   Route: "/event"
   Methods: {
