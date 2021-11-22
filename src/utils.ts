@@ -37,7 +37,21 @@ export async function request<
   return rest[_method](route, body).then((response) => response.data)
 }
 
-export function route<
+export function buildRouteMaker(router: express.Router) {
+  return <
+    Item extends api.Item,
+    Method extends keyof Item["Methods"] & string = keyof Item["Methods"] &
+      string,
+    Target extends Item["Methods"][Method] &
+      api.MethodObject = Item["Methods"][Method] & api.MethodObject
+  >(
+    method: Method,
+    route: Item["Route"],
+    ...listeners: express.RequestHandler[]
+  ) => createRoute(router, method, route, ...listeners)
+}
+
+export function createRoute<
   Item extends api.Item,
   Method extends keyof Item["Methods"] & string = keyof Item["Methods"] &
     string,
