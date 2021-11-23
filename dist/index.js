@@ -1,39 +1,30 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.isValidEmail = exports.isHash = exports.permissions = exports.Permission = void 0;
-var Permission;
-(function (Permission) {
-    /**
-     * Includes SHOW_ACCOUNTS, CREATE_ACCOUNTS, DELETE_ACCOUNTS and EDIT_ACCOUNTS. <br/>
-     * By default, everyone can edit or delete he own account.
-     */
-    Permission["MANAGE_ACCOUNTS"] = "manageAccounts";
-    Permission["SHOW_ACCOUNTS"] = "showAccounts";
-    Permission["CREATE_ACCOUNTS"] = "createAccounts";
-    Permission["DELETE_ACCOUNTS"] = "deleteAccounts";
-    Permission["EDIT_ACCOUNTS"] = "editAccounts";
-    /**
-     * Includes SHOW_GAMES, CREATE_GAMES, DELETE_GAMES and EDIT_GAMES.
-     */
-    Permission["MANAGE_GAMES"] = "manageGames";
-    Permission["SHOW_GAMES"] = "showGames";
-    Permission["CREATE_GAMES"] = "createGames";
-    Permission["DELETE_GAMES"] = "deleteGames";
-    Permission["EDIT_GAMES"] = "editGames";
-})(Permission = exports.Permission || (exports.Permission = {}));
-exports.permissions = {
-    user: [],
-    dev: [Permission.CREATE_GAMES, Permission.SHOW_GAMES],
-    admin: [Permission.MANAGE_ACCOUNTS, Permission.MANAGE_GAMES],
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
-function isHash(str) {
-    return str.length === 60;
-}
-exports.isHash = isHash;
-function isValidEmail(email) {
-    return (typeof email === "string" &&
-        !/\s/.test(email) &&
-        email.includes("@") &&
-        email.includes("."));
-}
-exports.isValidEmail = isValidEmail;
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.utils = exports.full = exports.api = exports.tables = void 0;
+__exportStar(require("./types/base"), exports);
+exports.tables = __importStar(require("./types/tables"));
+exports.api = __importStar(require("./types/api"));
+exports.full = __importStar(require("./types/full"));
+exports.utils = __importStar(require("./utils"));
