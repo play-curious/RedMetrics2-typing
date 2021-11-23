@@ -20,7 +20,8 @@ export async function request<
 >(
   method: Method,
   route: Item["Route"],
-  body: Target["Body"]
+  body: Target["Body"],
+  config?: _axios.AxiosRequestConfig
 ): Promise<Target["Response"]> {
   if (!rest)
     throw new Error(
@@ -34,7 +35,7 @@ export async function request<
     | "post"
     | "delete"
 
-  return rest[_method](route, body).then((response) => response.data)
+  return rest[_method](route, body, config).then((response) => response.data)
 }
 
 export function buildRouteMaker(router: express.Router) {

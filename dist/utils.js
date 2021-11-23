@@ -10,11 +10,11 @@ function setupConfig(config) {
     rest = axios_1.default.create(config);
 }
 exports.setupConfig = setupConfig;
-async function request(method, route, body) {
+async function request(method, route, body, config) {
     if (!rest)
         throw new Error("Axios config not defined. Please call the utils.setupConfig() method!");
     const _method = method.toLowerCase();
-    return rest[_method](route, body).then((response) => response.data);
+    return rest[_method](route, body, config).then((response) => response.data);
 }
 exports.request = request;
 function buildRouteMaker(router) {
