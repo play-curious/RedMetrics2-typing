@@ -9,6 +9,16 @@ let rest: _axios.AxiosInstance
 
 export function setupConfig(config: _axios.AxiosRequestConfig) {
   rest = axios.create(config)
+  return config
+}
+
+export function getAxiosInstance() {
+  if (!rest)
+    throw new Error(
+      "Axios config not defined. Please call the utils.setupConfig() method!"
+    )
+
+  return rest
 }
 
 export async function request<
@@ -39,7 +49,7 @@ export async function request<
 }
 
 export function buildRouteMaker(router: express.Router) {
-  return <
+  return function route<
     Item extends api.Item,
     Method extends keyof Item["Methods"] & string = keyof Item["Methods"] &
       string,
@@ -49,7 +59,9 @@ export function buildRouteMaker(router: express.Router) {
     method: Method,
     route: Item["Route"],
     ...listeners: express.RequestHandler[]
-  ) => createRoute(router, method, route, ...listeners)
+  ) {
+    createRoute(router, method, route, ...listeners)
+  }
 }
 
 export function createRoute<
