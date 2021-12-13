@@ -64,3 +64,12 @@ export interface GameById_Sessions extends Item {
     }
   }
 }
+
+export interface GameById_SessionCount extends Item {
+  Route: `/game/${tables.Game["id"]}/sessions/count`
+  Methods: {
+    Get: {
+      Response: number
+    }
+  }
+}
