@@ -42,6 +42,14 @@ export interface SessionById_Events extends Item {
         };
     };
 }
+export interface SessionById_EventCount extends Item {
+    Route: `/session/${tables.Session["id"]}/events/count`;
+    Methods: {
+        Get: {
+            Response: number;
+        };
+    };
+}
 export interface Event extends Item {
     Route: "/event";
     Methods: {
