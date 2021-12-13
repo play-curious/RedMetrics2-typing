@@ -45,7 +45,15 @@ export async function request<
     | "post"
     | "delete"
 
-  return rest[_method](route, body, config).then((response) => response.data)
+  switch (_method) {
+    case "get":
+    case "delete":
+      return rest.get(route, config).then((response) => response.data)
+    default:
+      return rest[_method](route, body, config).then(
+        (response) => response.data
+      )
+  }
 }
 
 export function buildRouteMaker(router: express.Router) {
