@@ -20,6 +20,15 @@ export interface Game extends Item {
   }
 }
 
+export interface GameCount extends Item {
+  Route: "/game/count"
+  Method: {
+    Get: {
+      Response: number
+    }
+  }
+}
+
 export interface GameById extends Item {
   Route: `/game/${tables.Game["id"]}`
   Methods: {
