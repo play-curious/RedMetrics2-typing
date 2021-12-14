@@ -1,5 +1,4 @@
 import * as scalable from "./scalable";
-export * from "./scalable";
 export * from "./routes";
 /**
  * Emitted API error

@@ -18,9 +18,13 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.utils = exports.full = exports.api = exports.tables = void 0;
 exports.tables = __importStar(require("./types/tables"));
 exports.api = __importStar(require("./types/api"));
 exports.full = __importStar(require("./types/full"));
 exports.utils = __importStar(require("./utils"));
+__exportStar(require("./types/scalable"), exports);
