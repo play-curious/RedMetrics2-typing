@@ -1,7 +1,6 @@
-import * as base from "./base";
-export * from "./api/auth";
-export * from "./api/game";
-export * from "./api/events";
+import * as scalable from "./scalable";
+export * from "./scalable";
+export * from "./routes";
 /**
  * Emitted API error
  */
@@ -17,7 +16,7 @@ export interface Error {
 export interface Status {
     api_version: number;
     build: string;
-    started_at: base.Date;
+    started_at: scalable.Date;
 }
 export interface Item {
     Route: `/${string}`;

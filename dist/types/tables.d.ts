@@ -1,4 +1,4 @@
-import * as base from "./base";
+import * as base from "./scalable";
 export interface Account {
     id: base.Id;
     email: base.Email;
