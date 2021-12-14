@@ -254,6 +254,15 @@ export interface Event extends api.Item {
   }
 }
 
+export interface EventById extends api.Item {
+  Route: `/event/${tables.Event["id"]}`
+  Methods: {
+    Get: {
+      Response: tables.Event
+    }
+  }
+}
+
 export interface Game extends api.Item {
   Route: "/game"
   Methods: {
