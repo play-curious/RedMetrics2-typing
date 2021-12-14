@@ -212,11 +212,11 @@ export interface Event extends api.Item {
             Response: tables.Event[];
         };
         Post: {
-            Body: Omit<tables.Event, "id" | "server_time">[];
-            Response: void;
+            Body: (Omit<tables.Event, "id" | "server_timestamp" | "session_id"> & Partial<Pick<tables.Event, "session_id">>)[];
+            Response: Pick<tables.Event, "session_id">;
         } | {
-            Body: Omit<tables.Event, "id" | "server_time">;
-            Response: void;
+            Body: Omit<tables.Event, "id" | "server_timestamp" | "session_id"> & Partial<Pick<tables.Event, "session_id">>;
+            Response: Pick<tables.Event, "session_id">;
         };
     };
 }
