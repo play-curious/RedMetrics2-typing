@@ -79,6 +79,14 @@ export interface Accounts extends Item {
         };
     };
 }
+export interface AccountCount extends Item {
+    Route: "/accounts/count";
+    Methods: {
+        Get: {
+            Response: number;
+        };
+    };
+}
 export interface Key extends Item {
     Route: "/key";
     Methods: {
