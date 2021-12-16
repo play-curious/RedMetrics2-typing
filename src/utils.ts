@@ -1,6 +1,6 @@
-import axios, * as _axios from "axios"
 import * as api from "./types/api"
-import * as express from "express"
+import axios, * as _axios from "axios"
+import type * as express from "express"
 
 export type Insert<T extends { id: number | string }> = Omit<T, "id">
 export type Update<T> = Partial<T>
@@ -32,7 +32,7 @@ export async function request<
   route: Item["Route"],
   body: Target["Body"],
   config?: _axios.AxiosRequestConfig
-): Promise<Target["Response"]> {
+): Promise<{ data: Target["Response"]; headers: _axios.AxiosResponseHeaders }> {
   if (!rest)
     throw new Error(
       "Axios config not defined. Please call the utils.setupConfig() method!"
@@ -50,9 +50,10 @@ export async function request<
     case "delete":
       return rest.get(route, config).then((response) => response.data)
     default:
-      return rest[_method](route, body, config).then(
-        (response) => response.data
-      )
+      return rest[_method](route, body, config).then((response) => ({
+        data: response.data,
+        headers: response.headers,
+      }))
   }
 }
 

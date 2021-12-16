@@ -26,7 +26,10 @@ async function request(method, route, body, config) {
         case "delete":
             return rest.get(route, config).then((response) => response.data);
         default:
-            return rest[_method](route, body, config).then((response) => response.data);
+            return rest[_method](route, body, config).then((response) => ({
+                data: response.data,
+                headers: response.headers,
+            }));
     }
 }
 exports.request = request;
