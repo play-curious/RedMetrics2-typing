@@ -7,7 +7,9 @@ export declare type Insert<T extends {
 export declare type Update<T> = Partial<T>;
 export declare function setupConfig(config: _axios.AxiosRequestConfig): _axios.AxiosRequestConfig<any>;
 export declare function getAxiosInstance(): _axios.AxiosInstance;
-export declare function request<Item extends api.Item, Method extends keyof Item["Methods"] & string = keyof Item["Methods"] & string, Target extends Item["Methods"][Method] & api.MethodObject = Item["Methods"][Method] & api.MethodObject>(method: Method, route: Item["Route"], body: Target["Body"], config?: _axios.AxiosRequestConfig): Promise<{
+export declare function request<Item extends api.Item, Method extends keyof Item["Methods"] & string = keyof Item["Methods"] & string, Target extends Item["Methods"][Method] & api.MethodObject = Item["Methods"][Method] & api.MethodObject>(method: Method, route: Item["Route"], body: Target["Body"], config?: _axios.AxiosRequestConfig & {
+    params: api.PagingParameters;
+}): Promise<{
     data: Target["Response"];
     headers: _axios.AxiosResponseHeaders;
 }>;
