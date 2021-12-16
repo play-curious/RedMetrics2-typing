@@ -81,14 +81,6 @@ export interface Accounts extends api.Item {
         };
     };
 }
-export interface AccountCount extends api.Item {
-    Route: "/accounts/count";
-    Methods: {
-        Get: {
-            Response: number;
-        };
-    };
-}
 export interface Key extends api.Item {
     Route: "/key";
     Methods: {
@@ -187,14 +179,6 @@ export interface SessionById_Events extends api.Item {
         };
     };
 }
-export interface SessionById_EventCount extends api.Item {
-    Route: `/session/${tables.Session["id"]}/events/count`;
-    Methods: {
-        Get: {
-            Response: number;
-        };
-    };
-}
 export interface Event extends api.Item {
     Route: "/event";
     Methods: {
@@ -245,14 +229,6 @@ export interface Game extends api.Item {
         };
     };
 }
-export interface GameCount extends api.Item {
-    Route: "/game/count";
-    Method: {
-        Get: {
-            Response: number;
-        };
-    };
-}
 export interface GameById extends api.Item {
     Route: `/game/${tables.Game["id"]}`;
     Methods: {
@@ -281,14 +257,6 @@ export interface GameById_Sessions extends api.Item {
     Methods: {
         Get: {
             Response: tables.Session[];
-        };
-    };
-}
-export interface GameById_SessionCount extends api.Item {
-    Route: `/game/${tables.Game["id"]}/sessions/count`;
-    Methods: {
-        Get: {
-            Response: number;
         };
     };
 }

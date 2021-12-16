@@ -38,3 +38,14 @@ export interface MethodObject {
 }
 
 export type Methods = "Get" | "Post" | "Delete" | "Put" | "Patch"
+
+export interface PagingHeaders {
+  "X-Paging-Item-Count": `${number}`
+  "X-Paging-Page-Index": `${number}`
+  "X-Paging-Page-Count": `${number}`
+  "X-Paging-Page-Item-Count": `${number}`
+  "X-Paging-Previous": string
+  "X-Paging-Next": string
+  "X-Paging-First": string
+  "X-Paging-Last": string
+}
