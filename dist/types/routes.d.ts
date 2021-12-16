@@ -164,7 +164,7 @@ export interface SessionById extends api.Item {
     };
 }
 export interface SessionById_Data extends api.Item {
-    Route: `/session/${tables.Session["id"]}/data`;
+    Route: `/session/${tables.Session["id"]}/data.json`;
     Methods: {
         Get: {
             Response: full.FullSession;
@@ -245,7 +245,7 @@ export interface GameById extends api.Item {
     };
 }
 export interface GameById_Data extends api.Item {
-    Route: `/game/${tables.Game["id"]}/data`;
+    Route: `/game/${tables.Game["id"]}/data.json`;
     Methods: {
         Get: {
             Response: full.FullGame;
