@@ -39,14 +39,17 @@ export interface MethodObject {
 
 export type Methods = "Get" | "Post" | "Delete" | "Put" | "Patch"
 
+export interface PagingParameters {
+  /** number of page (from 1 to X) */
+  page: number
+  /** number of items per page, limited by ``API_MAX_LIMIT_PER_PAGE`` env variable */
+  perPage: number
+}
+
 export interface PagingHeaders {
-  "X-Paging-Item-Count-Per-Page": `${number}`
-  "X-Paging-Total-Item-Count": `${number}`
-  "X-Paging-Page-Item-Count": `${number}`
-  "X-Paging-Page-Index": `${number}`
-  "X-Paging-Page-Count": `${number}`
-  "X-Paging-Link-Previous": string
-  "X-Paging-Link-Next": string
-  "X-Paging-Link-First": string
-  "X-Paging-Link-Last": string
+  "X-Per-Page-Count": `${number}`
+  "X-Total-Count": `${number}`
+  "X-Page-Count": `${number}`
+  "X-Page-Number": `${number}`
+  Link: string
 }
