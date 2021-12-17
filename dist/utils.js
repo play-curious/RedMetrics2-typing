@@ -24,7 +24,10 @@ async function request(method, route, body, config) {
     switch (_method) {
         case "get":
         case "delete":
-            return rest.get(route, config).then((response) => response.data);
+            return rest.get(route, config).then((response) => ({
+                data: response.data,
+                headers: response.headers,
+            }));
         default:
             return rest[_method](route, body, config).then((response) => ({
                 data: response.data,
