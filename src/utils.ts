@@ -31,7 +31,7 @@ export async function request<
   method: Method,
   route: Item["Route"],
   body: Target["Body"],
-  config?: _axios.AxiosRequestConfig & { params: api.PagingParameters }
+  config?: _axios.AxiosRequestConfig & { params: api.AllParameters }
 ): Promise<_axios.AxiosResponse & { data: Target["Response"] }> {
   if (!rest)
     throw new Error(
