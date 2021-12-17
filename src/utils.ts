@@ -32,7 +32,7 @@ export async function request<
   route: Item["Route"],
   body: Target["Body"],
   config?: _axios.AxiosRequestConfig & { params: api.PagingParameters }
-): Promise<{ data: Target["Response"]; headers: _axios.AxiosResponseHeaders }> {
+): Promise<_axios.AxiosResponse & { data: Target["Response"] }> {
   if (!rest)
     throw new Error(
       "Axios config not defined. Please call the utils.setupConfig() method!"
@@ -48,15 +48,9 @@ export async function request<
   switch (_method) {
     case "get":
     case "delete":
-      return rest.get(route, config).then((response) => ({
-        data: response.data,
-        headers: response.headers,
-      }))
+      return rest[_method]<Target["Response"]>(route, config)
     default:
-      return rest[_method](route, body, config).then((response) => ({
-        data: response.data,
-        headers: response.headers,
-      }))
+      return rest[_method]<Target["Response"]>(route, body, config)
   }
 }
 
