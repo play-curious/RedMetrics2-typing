@@ -35,12 +35,12 @@ export interface MethodObject {
 export declare type Methods = "Get" | "Post" | "Delete" | "Put" | "Patch";
 export interface PagingParameters {
     /** number of page (from 1 to X) */
-    page?: number;
+    page: number;
     /** number of items per page, limited by ``API_MAX_LIMIT_PER_PAGE`` env variable */
-    perPage?: number;
+    perPage: number;
 }
 export interface SortingParameters {
-    sortBy?: `${"created" | "updated"}_timestamp ${"asc" | "desc"}`;
+    sortBy: `${"created" | "updated"}_timestamp ${"asc" | "desc"}`;
 }
 export declare type AllParameters = PagingParameters & SortingParameters;
 export interface PagingHeaders {
