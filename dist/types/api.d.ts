@@ -40,9 +40,12 @@ export interface PagingParameters {
     perPage: number;
 }
 export interface SortingParameters {
-    sortBy: `${"created" | "updated"}_timestamp ${"asc" | "desc"}`;
+    sortBy: `${string} ${"asc" | "desc"}`;
 }
-export declare type AllParameters = PagingParameters & SortingParameters;
+export interface SessionParameters {
+    apiKey: string;
+}
+export declare type AllParameters = PagingParameters & SortingParameters & SessionParameters;
 export interface PagingHeaders {
     "X-Per-Page-Count": `${number}`;
     "X-Total-Count": `${number}`;

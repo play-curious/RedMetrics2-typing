@@ -47,10 +47,15 @@ export interface PagingParameters {
 }
 
 export interface SortingParameters {
-  sortBy: `${"created" | "updated"}_timestamp ${"asc" | "desc"}`
+  sortBy: `${string} ${"asc" | "desc"}`
 }
 
-export type AllParameters = PagingParameters & SortingParameters
+export interface SessionParameters {
+  apiKey: string
+}
+
+export type AllParameters =
+  | PagingParameters & SortingParameters & SessionParameters
 
 export interface PagingHeaders {
   "X-Per-Page-Count": `${number}`
