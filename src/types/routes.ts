@@ -3,6 +3,15 @@ import type * as full from "./full"
 import type * as tables from "./tables"
 import type * as scalable from "./scalable"
 
+export interface Status extends api.Item {
+  Route: "/status" | "/"
+  Methods: {
+    Get: {
+      Response: api.Status
+    }
+  }
+}
+
 export interface Logout extends api.Item {
   Route: "/logout"
   Methods: {
