@@ -14,7 +14,7 @@ export interface Logout extends api.Item {
     Route: "/logout";
     Methods: {
         Get: {
-            Response: void;
+            Response: {};
         };
     };
 }
@@ -49,7 +49,7 @@ export interface Account extends api.Item {
         };
         Post: {
             Body: Pick<tables.Account, "email" | "password" | "is_admin">;
-            Response: void;
+            Response: {};
         };
     };
 }
@@ -60,7 +60,7 @@ export interface AccountById extends api.Item {
             Response: tables.Account;
         };
         Delete: {
-            Response: void;
+            Response: {};
         };
         Put: {
             Body: Pick<tables.Account, "email" | "is_admin"> & {
@@ -100,7 +100,7 @@ export interface Key extends api.Item {
             Response: tables.ApiKey;
         };
         Delete: {
-            Response: void;
+            Response: {};
         };
     };
 }
@@ -108,7 +108,7 @@ export interface KeyByKey extends api.Item {
     Route: `/key/${tables.ApiKey["key"]}`;
     Methods: {
         Delete: {
-            Response: void;
+            Response: {};
         };
     };
 }
@@ -120,14 +120,14 @@ export interface LostPassword extends api.Item {
             Body: {
                 email: string;
             };
-            Response: void;
+            Response: {};
         };
         /** Send email including new temporary generated password */
         Patch: {
             Body: {
                 code: string;
             };
-            Response: void;
+            Response: {};
         };
     };
 }
@@ -136,14 +136,14 @@ export interface ConfirmEmail extends api.Item {
     Methods: {
         /** Send email with digit confirmation key */
         Post: {
-            Response: void;
+            Response: {};
         };
         /** Confirm account if digit code is good */
         Patch: {
             Body: {
                 code: string;
             };
-            Response: void;
+            Response: {};
         };
     };
 }
@@ -167,7 +167,7 @@ export interface SessionById extends api.Item {
         };
         Put: {
             Body: Pick<tables.Session, "custom_data" | "software" | "screen_size" | "platform" | "external_id" | "closed">;
-            Response: void;
+            Response: {};
         };
     };
 }
@@ -245,10 +245,18 @@ export interface GameById extends api.Item {
         };
         Put: {
             Body: Partial<Pick<tables.Game, "name" | "description" | "custom_data" | "author">>;
-            Response: void;
+            Response: {};
         };
         Delete: {
-            Response: void;
+            Response: {};
+        };
+    };
+}
+export interface GameById_Keys extends api.Item {
+    Route: `/game/${tables.Game["id"]}/keys`;
+    Methods: {
+        Get: {
+            Response: tables.ApiKey[];
         };
     };
 }
