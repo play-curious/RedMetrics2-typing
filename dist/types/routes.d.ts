@@ -112,8 +112,8 @@ export interface KeyByKey extends api.Item {
         };
     };
 }
-export interface LostPassword extends api.Item {
-    Route: "/lost-password";
+export interface ResetPassword extends api.Item {
+    Route: "/reset-password";
     Methods: {
         /** Send email and wait digit confirmation key */
         Post: {
@@ -122,8 +122,13 @@ export interface LostPassword extends api.Item {
             };
             Response: {};
         };
+    };
+}
+export interface ResetPassword_Confirm extends api.Item {
+    Route: "/reset-password/confirm";
+    Methods: {
         /** Send email including new temporary generated password */
-        Patch: {
+        Post: {
             Body: {
                 code: string;
             };
@@ -131,15 +136,20 @@ export interface LostPassword extends api.Item {
         };
     };
 }
-export interface ConfirmEmail extends api.Item {
-    Route: "/confirm-email";
+export interface CheckEmail extends api.Item {
+    Route: "/check-email";
     Methods: {
         /** Send email with digit confirmation key */
         Post: {
             Response: {};
         };
+    };
+}
+export interface CheckEmail_Confirm extends api.Item {
+    Route: "/check-email/confirm";
+    Methods: {
         /** Confirm account if digit code is good */
-        Patch: {
+        Post: {
             Body: {
                 code: string;
             };
@@ -179,8 +189,8 @@ export interface SessionById_Data extends api.Item {
         };
     };
 }
-export interface SessionById_Events extends api.Item {
-    Route: `/session/${tables.Session["id"]}/events`;
+export interface SessionById_Event extends api.Item {
+    Route: `/session/${tables.Session["id"]}/event`;
     Methods: {
         Get: {
             Response: tables.Event[];
@@ -252,8 +262,8 @@ export interface GameById extends api.Item {
         };
     };
 }
-export interface GameById_Keys extends api.Item {
-    Route: `/game/${tables.Game["id"]}/keys`;
+export interface GameById_Key extends api.Item {
+    Route: `/game/${tables.Game["id"]}/key`;
     Methods: {
         Get: {
             Response: tables.ApiKey[];
@@ -268,8 +278,8 @@ export interface GameById_Data extends api.Item {
         };
     };
 }
-export interface GameById_Sessions extends api.Item {
-    Route: `/game/${tables.Game["id"]}/sessions`;
+export interface GameById_Session extends api.Item {
+    Route: `/game/${tables.Game["id"]}/session`;
     Methods: {
         Get: {
             Response: tables.Session[];
