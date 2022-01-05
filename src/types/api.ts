@@ -9,14 +9,12 @@ export interface Error {
   description: string
 }
 
-/**
- * @property api_version - the numeric version, containing major and minor parts (such as 3.21)
- * @property build - the build of the software
- * @property started_at - Date that the server was last started
- */
 export interface Status {
+  /** the numeric version, containing major and minor parts (such as 3.21) */
   api_version: number
+  /** the build of the software */
   build: string
+  /** Date that the server was last started */
   started_at: scalable.Date
 }
 
