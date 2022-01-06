@@ -2,6 +2,7 @@ import type * as api from "./api";
 import type * as full from "./full";
 import type * as tables from "./tables";
 import type * as scalable from "./scalable";
+import type * as utils from "../utils";
 export interface Status extends api.Item {
     Route: "/status" | "/";
     Methods: {
@@ -45,10 +46,10 @@ export interface Account extends api.Item {
     Route: "/account";
     Methods: {
         Get: {
-            Response: tables.Account;
+            Response: utils.SnakeToCamelCaseNested<tables.Account>;
         };
         Post: {
-            Body: Pick<tables.Account, "email" | "password" | "is_admin">;
+            Body: utils.SnakeToCamelCaseNested<Pick<tables.Account, "email" | "password" | "is_admin">>;
             Response: {};
         };
     };
@@ -57,27 +58,27 @@ export interface AccountById extends api.Item {
     Route: `/account/${tables.Account["id"]}`;
     Methods: {
         Get: {
-            Response: tables.Account;
+            Response: utils.SnakeToCamelCaseNested<tables.Account>;
         };
         Delete: {
             Response: {};
         };
         Put: {
-            Body: Pick<tables.Account, "email" | "is_admin"> & {
+            Body: utils.SnakeToCamelCaseNested<Pick<tables.Account, "email" | "is_admin"> & {
                 new_password?: tables.Account["password"];
                 old_password?: tables.Account["password"];
-            };
+            }>;
             Response: {
                 id: tables.Account["id"];
             };
         };
     };
 }
-export interface AccountById_Keys extends api.Item {
-    Route: `/account/${tables.Account["id"]}/keys`;
+export interface AccountById_Key extends api.Item {
+    Route: `/account/${tables.Account["id"]}/key`;
     Methods: {
         Get: {
-            Response: tables.ApiKey[];
+            Response: utils.SnakeToCamelCaseNested<tables.ApiKey>[];
         };
     };
 }
@@ -85,7 +86,7 @@ export interface Accounts extends api.Item {
     Route: "/accounts";
     Methods: {
         Get: {
-            Response: tables.Account[];
+            Response: utils.SnakeToCamelCaseNested<tables.Account>[];
         };
     };
 }
@@ -93,11 +94,11 @@ export interface Key extends api.Item {
     Route: "/key";
     Methods: {
         Post: {
-            Body: Pick<tables.ApiKey, "description" | "game_id">;
-            Response: tables.ApiKey;
+            Body: utils.SnakeToCamelCaseNested<Pick<tables.ApiKey, "description" | "game_id">>;
+            Response: utils.SnakeToCamelCaseNested<tables.ApiKey>;
         };
         Get: {
-            Response: tables.ApiKey;
+            Response: utils.SnakeToCamelCaseNested<tables.ApiKey>;
         };
         Delete: {
             Response: {};
@@ -161,7 +162,7 @@ export interface Session extends api.Item {
     Route: "/session";
     Methods: {
         Post: {
-            Body: Omit<tables.Session, "id" | "game_id" | "created_timestamp" | "updated_timestamp" | "closed">;
+            Body: utils.SnakeToCamelCaseNested<Omit<tables.Session, "id" | "game_id" | "created_timestamp" | "updated_timestamp" | "closed">>;
             Response: Pick<tables.Session, "id">;
         };
     };
@@ -173,10 +174,10 @@ export interface SessionById extends api.Item {
     };
     Methods: {
         Get: {
-            Response: tables.Session;
+            Response: utils.SnakeToCamelCaseNested<tables.Session>;
         };
         Put: {
-            Body: Pick<tables.Session, "custom_data" | "software" | "screen_size" | "platform" | "external_id" | "closed">;
+            Body: utils.SnakeToCamelCaseNested<Pick<tables.Session, "custom_data" | "software" | "screen_size" | "platform" | "external_id" | "closed">>;
             Response: {};
         };
     };
@@ -193,7 +194,7 @@ export interface SessionById_Event extends api.Item {
     Route: `/session/${tables.Session["id"]}/event`;
     Methods: {
         Get: {
-            Response: tables.Event[];
+            Response: utils.SnakeToCamelCaseNested<tables.Event>[];
         };
     };
 }
@@ -201,7 +202,7 @@ export interface Event extends api.Item {
     Route: "/event";
     Methods: {
         Get: {
-            Body: Partial<{
+            Body: utils.SnakeToCamelCaseNested<Partial<{
                 game_id: tables.Game["id"];
                 session_id: tables.Session["id"];
                 type: scalable.EventType;
@@ -210,15 +211,15 @@ export interface Event extends api.Item {
                 before: scalable.Date;
                 offset: number;
                 count: number;
-            }>;
-            Response: tables.Event[];
+            }>>;
+            Response: utils.SnakeToCamelCaseNested<tables.Event>[];
         };
         Post: {
-            Body: (Omit<tables.Event, "id" | "server_timestamp" | "session_id"> & Partial<Pick<tables.Event, "session_id">>)[];
-            Response: Pick<tables.Event, "session_id">;
+            Body: utils.SnakeToCamelCaseNested<Omit<tables.Event, "id" | "server_timestamp" | "session_id"> & Partial<Pick<tables.Event, "session_id">>>[];
+            Response: utils.SnakeToCamelCaseNested<Pick<tables.Event, "session_id">>;
         } | {
-            Body: Omit<tables.Event, "id" | "server_timestamp" | "session_id"> & Partial<Pick<tables.Event, "session_id">>;
-            Response: Pick<tables.Event, "session_id">;
+            Body: utils.SnakeToCamelCaseNested<Omit<tables.Event, "id" | "server_timestamp" | "session_id"> & Partial<Pick<tables.Event, "session_id">>>;
+            Response: utils.SnakeToCamelCaseNested<Pick<tables.Event, "session_id">>;
         };
     };
 }
@@ -226,7 +227,7 @@ export interface EventById extends api.Item {
     Route: `/event/${tables.Event["id"]}`;
     Methods: {
         Get: {
-            Response: tables.Event;
+            Response: utils.SnakeToCamelCaseNested<tables.Event>;
         };
     };
 }
@@ -234,16 +235,16 @@ export interface Game extends api.Item {
     Route: "/game";
     Methods: {
         Get: {
-            Body: Partial<{
+            Body: utils.SnakeToCamelCaseNested<Partial<{
                 publisher_id: tables.Account["id"];
                 offset: number;
                 count: number;
-            }>;
-            Response: tables.Game[];
+            }>>;
+            Response: utils.SnakeToCamelCaseNested<tables.Game>[];
         };
         Post: {
-            Body: Omit<tables.Game, "id">;
-            Response: tables.Game;
+            Body: utils.SnakeToCamelCaseNested<Omit<tables.Game, "id">>;
+            Response: utils.SnakeToCamelCaseNested<tables.Game>;
         };
     };
 }
@@ -251,10 +252,10 @@ export interface GameById extends api.Item {
     Route: `/game/${tables.Game["id"]}`;
     Methods: {
         Get: {
-            Response: tables.Game;
+            Response: utils.SnakeToCamelCaseNested<tables.Game>;
         };
         Put: {
-            Body: Partial<Pick<tables.Game, "name" | "description" | "custom_data" | "author">>;
+            Body: utils.SnakeToCamelCaseNested<Partial<Pick<tables.Game, "name" | "description" | "custom_data" | "author">>>;
             Response: {};
         };
         Delete: {
@@ -266,7 +267,7 @@ export interface GameById_Key extends api.Item {
     Route: `/game/${tables.Game["id"]}/key`;
     Methods: {
         Get: {
-            Response: tables.ApiKey[];
+            Response: utils.SnakeToCamelCaseNested<tables.ApiKey>[];
         };
     };
 }
@@ -282,7 +283,7 @@ export interface GameById_Session extends api.Item {
     Route: `/game/${tables.Game["id"]}/session`;
     Methods: {
         Get: {
-            Response: tables.Session[];
+            Response: utils.SnakeToCamelCaseNested<tables.Session>[];
         };
     };
 }

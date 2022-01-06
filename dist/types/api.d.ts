@@ -9,11 +9,11 @@ export interface Error {
 }
 export interface Status {
     /** the numeric version, containing major and minor parts (such as 3.21) */
-    api_version: number;
+    apiVersion: number;
     /** the build of the software */
     build: string;
     /** Date that the server was last started */
-    started_at: scalable.Date;
+    startedAt: scalable.Date;
 }
 export interface Item {
     Route: `/${string}`;
