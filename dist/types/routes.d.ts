@@ -46,7 +46,7 @@ export interface Account extends api.Item {
     Route: "/account";
     Methods: {
         Get: {
-            Response: utils.SnakeToCamelCaseNested<tables.Account>;
+            Response: utils.SnakeToCamelCaseNested<Omit<tables.Account, "password">>;
         };
         Post: {
             Body: utils.SnakeToCamelCaseNested<Pick<tables.Account, "email" | "password" | "is_admin">>;
@@ -58,7 +58,7 @@ export interface AccountById extends api.Item {
     Route: `/account/${tables.Account["id"]}`;
     Methods: {
         Get: {
-            Response: utils.SnakeToCamelCaseNested<tables.Account>;
+            Response: utils.SnakeToCamelCaseNested<Omit<tables.Account, "password">>;
         };
         Delete: {
             Response: {};
@@ -86,7 +86,7 @@ export interface Accounts extends api.Item {
     Route: "/accounts";
     Methods: {
         Get: {
-            Response: utils.SnakeToCamelCaseNested<tables.Account>[];
+            Response: utils.SnakeToCamelCaseNested<Omit<tables.Account, "password">>[];
         };
     };
 }

@@ -4,7 +4,6 @@ import type * as tables from "./tables"
 import type * as scalable from "./scalable"
 
 import type * as utils from "../utils"
-import { SnakeToCamelCaseNested } from "../utils"
 
 export interface Status extends api.Item {
   Route: "/status" | "/"
@@ -53,7 +52,7 @@ export interface Account extends api.Item {
   Route: "/account"
   Methods: {
     Get: {
-      Response: utils.SnakeToCamelCaseNested<tables.Account>
+      Response: utils.SnakeToCamelCaseNested<Omit<tables.Account, "password">>
     }
     Post: {
       Body: utils.SnakeToCamelCaseNested<
@@ -68,7 +67,7 @@ export interface AccountById extends api.Item {
   Route: `/account/${tables.Account["id"]}`
   Methods: {
     Get: {
-      Response: utils.SnakeToCamelCaseNested<tables.Account>
+      Response: utils.SnakeToCamelCaseNested<Omit<tables.Account, "password">>
     }
     Delete: {
       Response: {}
@@ -100,7 +99,7 @@ export interface Accounts extends api.Item {
   Route: "/accounts"
   Methods: {
     Get: {
-      Response: utils.SnakeToCamelCaseNested<tables.Account>[]
+      Response: utils.SnakeToCamelCaseNested<Omit<tables.Account, "password">>[]
     }
   }
 }
