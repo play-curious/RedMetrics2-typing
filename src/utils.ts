@@ -97,7 +97,9 @@ export type SnakeToCamelCase<S extends string> =
     ? `${Lowercase<T>}${Capitalize<SnakeToCamelCase<U>>}`
     : S
 
-export type SnakeToCamelCaseNested<T> = T extends object
+export type SnakeToCamelCaseNested<T> = T extends (infer E)[]
+  ? SnakeToCamelCaseNested<E>[]
+  : T extends object
   ? {
       [K in keyof T as SnakeToCamelCase<K & string>]: SnakeToCamelCaseNested<
         T[K]

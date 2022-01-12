@@ -15,6 +15,6 @@ export declare function request<Item extends api.Item, Method extends keyof Item
 export declare function buildRouteMaker(router: express.Router): <Item extends api.Item, Method extends keyof Item["Methods"] & string = keyof Item["Methods"] & string, Target extends Item["Methods"][Method] & api.MethodObject = Item["Methods"][Method] & api.MethodObject>(method: Method, route: Item["Route"], ...listeners: express.RequestHandler[]) => void;
 export declare function createRoute<Item extends api.Item, Method extends keyof Item["Methods"] & string = keyof Item["Methods"] & string, Target extends Item["Methods"][Method] & api.MethodObject = Item["Methods"][Method] & api.MethodObject>(router: express.Router, method: Method, route: Item["Route"], ...listeners: express.RequestHandler[]): void;
 export declare type SnakeToCamelCase<S extends string> = S extends `${infer T}_${infer U}` ? `${Lowercase<T>}${Capitalize<SnakeToCamelCase<U>>}` : S;
-export declare type SnakeToCamelCaseNested<T> = T extends object ? {
+export declare type SnakeToCamelCaseNested<T> = T extends (infer E)[] ? SnakeToCamelCaseNested<E>[] : T extends object ? {
     [K in keyof T as SnakeToCamelCase<K & string>]: SnakeToCamelCaseNested<T[K]>;
 } : T;
