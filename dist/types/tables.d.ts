@@ -6,7 +6,7 @@ export interface Account {
     connection_token?: string;
     confirmed?: boolean;
     is_admin: boolean;
-    created_timestamp: string;
+    created_timestamp: base.DateResolvable;
 }
 export interface Confirmation {
     account_id: Account["id"];
@@ -35,8 +35,8 @@ export interface Session {
     software?: string;
     external_id?: string;
     custom_data?: base.CustomData;
-    updated_timestamp: string;
-    created_timestamp: string;
+    updated_timestamp: base.DateResolvable;
+    created_timestamp: base.DateResolvable;
 }
 /**
  * @property author - Containing the name of the person or organization who created the game
