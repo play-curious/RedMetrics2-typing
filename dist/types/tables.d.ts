@@ -14,7 +14,7 @@ export interface Confirmation {
 }
 export interface ApiKey {
     description?: string;
-    start_timestamp: base.Date;
+    start_timestamp: base.DateResolvable;
     key: base.Id;
     account_id: Account["id"];
     game_id: Game["id"];
@@ -56,8 +56,8 @@ export interface Event {
     id: number;
     session_id: Session["id"];
     type: base.EventType;
-    server_timestamp: base.Date;
-    user_timestamp?: base.Date;
+    server_timestamp: base.DateResolvable;
+    user_timestamp?: base.DateResolvable;
     custom_data?: base.CustomData;
     section?: base.Section;
     coordinates?: base.Coordinate;

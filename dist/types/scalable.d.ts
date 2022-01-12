@@ -3,7 +3,7 @@
  * It looks like 2015-01-27T09:44:32.418Z. <br>
  * All times are in UTC, and include milliseconds.
  */
-export declare type Date = string;
+export declare type DateResolvable = string | Date;
 /**
  * String containing a server-generated unique identifier.
  */

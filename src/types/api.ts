@@ -15,7 +15,7 @@ export interface Status {
   /** the build of the software */
   build: string
   /** Date that the server was last started */
-  startedAt: scalable.Date
+  startedAt: scalable.DateResolvable
 }
 
 export interface Item {

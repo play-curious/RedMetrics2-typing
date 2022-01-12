@@ -253,8 +253,8 @@ export interface Event extends api.Item {
           session_id: tables.Session["id"]
           type: scalable.EventType
           section: scalable.Section
-          after: scalable.Date
-          before: scalable.Date
+          after: scalable.DateResolvable
+          before: scalable.DateResolvable
           offset: number
           count: number
         }>
