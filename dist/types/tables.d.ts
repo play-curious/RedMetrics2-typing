@@ -27,7 +27,7 @@ export interface ApiKey {
  */
 export interface Session {
     id: base.Id;
-    game_id: Game["id"];
+    game_id?: Game["id"];
     closed: boolean;
     version?: string;
     platform?: string;
@@ -54,7 +54,7 @@ export interface Game {
  */
 export interface Event {
     id: number;
-    session_id: Session["id"];
+    session_id?: Session["id"];
     type: base.EventType;
     server_timestamp: base.DateResolvable;
     user_timestamp?: base.DateResolvable;
